@@ -5,15 +5,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SkopeiTestAPI.DataContext;
-using Microsoft.OpenApi.Models;
-using SkopeiTestAPI.Entities;
-using SkopeiTestAPI.DataManager;
-using SkopeiTestAPI.Entities.IRepository;
+using SkopeiBackendAssignment.DataContext;
+
+using SkopeiBackendAssignment.Entities;
+using SkopeiBackendAssignment.DataManager;
+using SkopeiBackendAssignment.Entities.IRepository;
 using System.Reflection;
 using System.IO;
+using Microsoft.OpenApi.Models;
 
-namespace SkopeiTestAPI
+namespace SkopeiBackendAssignment
 {
     public class Startup
     {
@@ -40,10 +41,10 @@ namespace SkopeiTestAPI
             // Swagger Documentation
             services.AddSwaggerGen(s =>
             {
-                s.SwaggerDoc("v1", new OpenApiInfo 
-                { 
+                s.SwaggerDoc("v1", new OpenApiInfo
+                {
                     Title = "Skopei Test API",
-                    Version = "1.0.0", 
+                    Version = "1.0.0",
                     Description = "API Documentation for Skopei Backend Assignment",
                     Contact = new OpenApiContact
                     {
@@ -51,7 +52,7 @@ namespace SkopeiTestAPI
                         Email = "debadeep.basu@gmail.com"
                     },
                 });
-                
+
                 // Setting the comments path for the Swagger JSON and UI.
                 // The xml file generated due to enabling XML Comments is included here
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -74,11 +75,11 @@ namespace SkopeiTestAPI
             app.UseSwagger();
             // To Serve  Swagger UI for the APIs using swagger json endpoint
             app.UseSwaggerUI(c =>
-              {
-                  c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-                  // To load Swagger by default route
-                  c.RoutePrefix = string.Empty;
-              });
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+                // To load Swagger by default route
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseRouting();
 
@@ -89,7 +90,7 @@ namespace SkopeiTestAPI
                 endpoints.MapControllers();
             });
 
-           
+
 
         }
     }

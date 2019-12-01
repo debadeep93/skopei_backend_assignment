@@ -33,8 +33,7 @@ why was it done as such.
 
 6. Put the project in a public git repository, so we can fetch it and run it locally
 
-### Should haves (These requirements are slightly less important, but we do expect them to be
-present in the final project you deliver.)
+### Should haves (These requirements are slightly less important, but we do expect them to be present in the final project you deliver.)
 
 1. Connect the API to local database and use code-first approach to migrate changes to the
 database.
